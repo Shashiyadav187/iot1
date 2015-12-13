@@ -1,0 +1,89 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "lightbulb",
+        "designer|userClassName": "LightbulbViewController"
+    },
+    "designerId": "9377ab95-b8f7-48e3-964d-3be86fc3ebc5",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onLightbulbClick",
+                "implHandler": [
+                    "        var vm = this.getViewModel();",
+                    "        var lightId = vm.get('lightId');",
+                    "        if (lightId == 0) {",
+                    "            Ext.Msg.alert(\"Error\",\"You must select a bulb\");",
+                    "            return;",
+                    "        }",
+                    "        var status = vm.get('lightStatus');",
+                    "        vm.set('lightStatus',!status );",
+                    "        this.lookupReference('lightscombo').getSelection().set('state', !status );",
+                    "",
+                    "        Ext.Ajax.request({",
+                    "            url: '/hue',",
+                    "            method: 'PUT',",
+                    "            params: {",
+                    "                id: vm.get('lightId'),",
+                    "                turnOn: !status",
+                    "            },",
+                    "            success:function(response) {",
+                    "                console.log(response);",
+                    "            }",
+                    "        });"
+                ]
+            },
+            "name": "onLightbulbClick",
+            "designerId": "4d3ecc71-a15a-4f1a-8356-45991bf7b452"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "e"
+                ],
+                "fn": "onLightbulbContextMenuClick",
+                "implHandler": [
+                    "e.preventDefault();      ",
+                    "var vm = this.getViewModel();",
+                    "var lightId = vm.get('lightId');",
+                    "",
+                    "if (lightId == 0) {",
+                    "    Ext.Msg.alert(\"Error\",\"You must select a bulb\");",
+                    "    return;",
+                    "}",
+                    "vm.set('lightStatus',true);",
+                    "Ext.Ajax.request({",
+                    "    url: '/hue',",
+                    "    method: 'POST',",
+                    "    params: {",
+                    "        id: vm.get('lightId')",
+                    "    },",
+                    "    success:function(response) {",
+                    "        console.log(response);",
+                    "    }",
+                    "});",
+                    ""
+                ]
+            },
+            "name": "onLightbulbContextMenuClick",
+            "designerId": "ac394e3c-2e5b-44fc-ac23-2e2eb11afcc8"
+        }
+    ]
+}

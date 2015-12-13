@@ -1,0 +1,40 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Light"
+        ],
+        "name": "MyApp",
+        "views": [
+            "MyViewport",
+            "Lightbulb"
+        ]
+    },
+    "name": "Application",
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    "        Ext.ComponentQuery.query('viewport')[0].add({",
+                    "            xtype: 'Lightbulb'",
+                    "        }).show();"
+                ]
+            },
+            "name": "launch",
+            "designerId": "f4b7fac5-a20c-4343-96eb-e0c837c73402"
+        }
+    ]
+}

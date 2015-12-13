@@ -1,0 +1,67 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Light"
+    },
+    "name": "MyModel",
+    "designerId": "aaf6c162-05cd-4454-bf69-fdda4d84034f",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "name": "MyField",
+            "designerId": "c6c749ee-a96e-492e-ab6d-a5f12d018af7"
+        },
+        {
+            "type": "Ext.data.field.Boolean",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "state"
+            },
+            "name": "MyBoolean2",
+            "designerId": "ebb0f7a5-5ad7-48ad-b289-e7ec8690177c"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "name": "MyField2",
+            "designerId": "0ce5a13c-7fc3-4bf9-8e38-27dd6644153d"
+        },
+        {
+            "type": "Ext.data.field.Boolean",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "reachable"
+            },
+            "name": "MyBoolean",
+            "designerId": "2ac9aae3-718d-49d5-9ce6-2ba92cbada00"
+        }
+    ]
+}

@@ -1,0 +1,118 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "constrain": true,
+        "container|align": "center",
+        "container|pack": "center",
+        "designer|userAlias": "Lightbulb",
+        "designer|userClassName": "Lightbulb",
+        "height": 358,
+        "layout": "vbox",
+        "title": "Fig Leaf Software IoT Demo 1",
+        "width": 425
+    },
+    "name": "MyWindow",
+    "designerId": "63a4a0ce-5848-4b56-bbf2-732079c2d932",
+    "viewControllerInstanceId": "9377ab95-b8f7-48e3-964d-3be86fc3ebc5",
+    "viewModelInstanceId": "fa68db52-4a71-4b1f-83b6-d1d8d4a6dbde",
+    "cn": [
+        {
+            "type": "Ext.Img",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "disabled": true,
+                "height": 256,
+                "layout|flex": null,
+                "reference": "lightbulbImg",
+                "src": [
+                    "{lightbulbUrl}"
+                ],
+                "width": 256
+            },
+            "name": "MyImg",
+            "configAlternates": {
+                "src": "binding"
+            },
+            "designerId": "ac684b4f-4cff-4a24-b499-5f565752c752"
+        },
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayField": "name",
+                "fieldLabel": "",
+                "forceSelection": true,
+                "layout|flex": null,
+                "reference": "lightscombo",
+                "store": [
+                    "{Lights}"
+                ],
+                "valueField": "id",
+                "width": 200
+            },
+            "name": "MyComboBox",
+            "configAlternates": {
+                "store": "binding"
+            },
+            "designerId": "7b306835-0e00-4bd4-ba07-a353a5df7ee3",
+            "cn": [
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onComboboxChange",
+                        "implHandler": [
+                            "        var vm = this.getViewModel();",
+                            "        var selection = field.getSelection();",
+                            "        vm.set('lightId',selection.get('id'));",
+                            "        vm.set('lightStatus', selection.get('state'));",
+                            ""
+                        ],
+                        "name": "change",
+                        "scope": "me"
+                    },
+                    "name": "onComboboxChange",
+                    "designerId": "49fceb7f-4835-4863-8166-6d1745d8bd42"
+                }
+            ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowAfterRender",
+                "implHandler": [
+                    "var l = this.lookupReference('lightbulbImg');",
+                    "l.getEl().on('click', this.onLightbulbClick, this);",
+                    "l.getEl().on('contextmenu', this.onLightbulbContextMenuClick, this);"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onWindowAfterRender",
+            "designerId": "dbc33cc5-8884-44ae-b614-89c197df6309"
+        }
+    ]
+}
